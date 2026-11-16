@@ -1,0 +1,659 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebVision BF</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #0b1120;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* MENU DE NAVIGATION */
+       
+nav {
+    background: #111c33;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo {
+    color: #facc15;
+    margin: 0;
+    font-size: 25px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #facc15;
+}
+
+@media screen and (max-width: 700px) {
+    nav {
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+        /* ACCUEIL */
+        header {
+            background: #17243a;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #facc15;
+            font-size: 38px;
+        }
+
+        .bouton {
+            display: inline-block;
+            background: #facc15;
+            color: black;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* SERVICES */
+        #services {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #services h2,
+        #contact h2 {
+            color: #facc15;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .carte {
+            background: #17243a;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .carte h3 {
+            color: #facc15;
+        }
+
+        /* CONTACT */
+        #contact {
+            text-align: center;
+            padding: 40px 20px;
+            background: #111c33;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #cbd5e1;
+        }
+
+        /* VERSION TELEPHONE */
+        @media screen and (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+
+            #services {
+                padding: 30px 15px;
+            }
+        }
+    
+#apropos,
+#realisations,
+#tarifs {
+    padding: 45px 20px;
+    text-align: center;
+}
+
+#apropos h2,
+#realisations h2,
+#tarifs h2 {
+    color: #facc15;
+}
+
+#apropos p,
+#realisations p,
+#tarifs p {
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.banniere {
+    background: linear-gradient(135deg, #17243a, #0b1120);
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.surtitre {
+    color: #facc15;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.banniere h1 {
+    color: white;
+    font-size: 42px;
+    max-width: 750px;
+    margin: 20px auto;
+}
+
+.description {
+    color: #cbd5e1;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 20px auto 30px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.bouton-whatsapp {
+    background: #16a34a;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+    .banniere {
+        padding: 55px 15px;
+    }
+
+    .banniere h1 {
+        font-size: 29px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+}
+
+.realisations-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+@media screen and (max-width: 700px) {
+    .realisations-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.image-projet {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+.realisations-container .carte {
+    overflow: hidden;
+}
+
+.realisations-container .carte {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.realisations-container .carte:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.image-projet {
+    transition: transform 0.4s ease;
+}
+
+.realisations-container .carte:hover .image-projet {
+    transform: scale(1.04);
+}
+
+.tarifs-description {
+    color: #cbd5e1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tarifs-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.offre {
+    background: #17243a;
+    border: 1px solid #334155;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.offre:hover {
+    transform: translateY(-8px);
+}
+
+.offre h3 {
+    color: #facc15;
+}
+
+.offre h2 {
+    color: white;
+    font-size: 25px;
+}
+
+.offre ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.offre li {
+    color: #cbd5e1;
+    padding: 10px 0;
+    border-bottom: 1px solid #334155;
+}
+
+.offre-populaire {
+    border: 2px solid #facc15;
+}
+
+.populaire {
+    display: inline-block;
+    background: #facc15;
+    color: black;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+    .tarifs-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-description {
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+#form-contact {
+    max-width: 550px;
+    margin: 30px auto;
+    text-align: left;
+    background: #17243a;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #334155;
+}
+
+#form-contact label {
+    display: block;
+    margin: 15px 0 8px;
+    color: #facc15;
+    font-weight: bold;
+}
+
+#form-contact input,
+#form-contact textarea {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #0b1120;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+#form-contact textarea {
+    resize: vertical;
+}
+
+.bouton-envoi {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    background: #facc15;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bouton-envoi:hover {
+    background: #eab308;
+}
+</style>
+</head>
+
+<body>
+
+    <nav>
+    <h2 class="logo">WebVision BF</h2>
+
+    <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+    <header id="accueil">
+    <p class="surtitre">BIENVENUE CHEZ WEBVISION BF</p>
+
+    <h1>Votre présence sur Internet commence ici.</h1>
+
+    <p class="description">
+        Nous créons des sites web modernes,
+        élégants et adaptés à votre activité.
+    </p>
+
+    <div class="actions">
+        <a href="#services" class="bouton">
+            Découvrir nos services
+        </a>
+
+        <a href="https://wa.me/22678488179"
+           class="bouton-whatsapp"
+           target="_blank">
+            Nous contacter sur WhatsApp
+        </a>
+    </div>
+</header>
+
+    </header>
+
+    <section id="services">
+        <h2>Nos services</h2>
+
+        <div class="services-container">
+            <div class="carte">
+                <h3>Sites vitrines</h3>
+                <p>Présentez votre entreprise sur Internet.</p>
+            </div>
+
+            <div class="carte">
+                <h3>Boutiques en ligne</h3>
+                <p>Présentez vos produits à vos clients.</p>
+            </div>
+
+            <div class="carte">
+                <h3>Web design</h3>
+                <p>Des pages modernes et élégantes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+
+    <h2>Contactez-nous</h2>
+
+    <p class="contact-description">
+        Vous avez un projet ? Parlons-en ensemble !
+    </p>
+
+    <form id="form-contact">
+
+        <label for="nom">Votre nom</label>
+        <input type="text" id="nom"
+               placeholder="Entrez votre nom" required>
+
+        <label for="email">Votre adresse e-mail</label>
+        <input type="email" id="email"
+               placeholder="exemple@email.com" required>
+
+        <label for="message">Votre message</label>
+        <textarea id="message"
+                  placeholder="Décrivez votre projet..."
+                  rows="5" required></textarea>
+
+        <button type="submit" class="bouton-envoi">
+            Envoyer mon message
+        </button>
+
+    </form>
+
+</section>
+
+    </section>
+
+    <footer>
+        
+<!-- SECTION A PROPOS -->
+<section id="apropos">
+    <h2>À propos de WebVision BF</h2>
+    <p>
+        WebVision BF est une initiative spécialisée
+        dans la création de sites web modernes,
+        simples et professionnels.
+    </p>
+</section>
+
+<!-- SECTION REALISATIONS -->
+<section id="realisations">
+    <h2>Nos réalisations</h2>
+
+    <p>Découvrez quelques exemples de nos créations web.</p>
+
+    <div class="realisations-container">
+
+        <div class="carte">
+            <img
+                src="https://images.unsplash.com/photo-1502491759181-ffa0aead0076?auto=format&fit=crop&w=900&q=80"
+                alt="Intérieur d'un restaurant"
+                class="image-projet">
+
+            <h3>Site de restaurant</h3>
+            <p>Un site moderne pour présenter les menus et les services d'un restaurant.</p>
+        </div>
+
+        <div class="carte">
+            <img
+                src="https://www.oowlish.com/images/services/ecommerce.png"
+                alt="Exemple de boutique en ligne"
+                class="image-projet">
+
+            <h3>Boutique en ligne</h3>
+            <p>Une plateforme pour présenter des produits et faciliter les commandes.</p>
+        </div>
+
+        <div class="carte">
+            <img
+                src="https://images.unsplash.com/photo-1637502875124-eb4a9843a2fa?auto=format&fit=crop&w=900&q=80"
+                alt="Portfolio affiché sur un ordinateur"
+                class="image-projet">
+
+            <h3>Portfolio professionnel</h3>
+            <p>Un espace pour présenter les compétences et les projets d'un professionnel.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SECTION TARIFS -->
+<section id="tarifs">
+    
+
+    <h2>Nos offres et tarifs</h2>
+
+    <p class="tarifs-description">
+        Choisissez la formule adaptée à votre projet.
+    </p>
+
+    <div class="tarifs-container">
+
+        <div class="offre">
+            <h3>STARTER</h3>
+            <h2>25 000 F CFA</h2>
+
+            <p>Pour les petites activités.</p>
+
+            <ul>
+                <li>Site vitrine simple</li>
+                <li>Présentation de l'activité</li>
+                <li>Design adapté au téléphone</li>
+                <li>Contact WhatsApp</li>
+            </ul>
+
+            <a href="#contact" class="bouton">
+                Choisir cette offre
+            </a>
+        </div>
+
+        <div class="offre offre-populaire">
+            <span class="populaire">POPULAIRE</span>
+
+            <h3>PROFESSIONNEL</h3>
+            <h2>40 000 F CFA</h2>
+
+            <p>Pour les entreprises et commerces.</p>
+
+            <ul>
+                <li>Site web personnalisé</li>
+                <li>Plusieurs sections</li>
+                <li>Galerie d'images</li>
+                <li>Contact WhatsApp</li>
+            </ul>
+
+            <a href="#contact" class="bouton">
+                Choisir cette offre
+            </a>
+        </div>
+
+        <div class="offre">
+            <h3>PREMIUM</h3>
+            <h2>60 000 F CFA</h2>
+
+            <p>Pour les projets plus développés.</p>
+
+            <ul>
+                <li>Design personnalisé</li>
+                <li>Catalogue de produits</li>
+                <li>Présentation détaillée</li>
+                <li>Commandes par WhatsApp</li>
+            </ul>
+
+            <a href="#contact" class="bouton">
+                Choisir cette offre
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+    </footer>
+
+
+<script>
+document.getElementById("form-contact").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const nom = document.getElementById("nom").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const numeroWhatsApp = "22678488179";
+
+    const texte =
+        "Bonjour WebVision BF !" +
+        "\nNom : " + nom +
+        "\nEmail : " + email +
+        "\nMessage : " + message;
+
+    const lien = "https://wa.me/" + numeroWhatsApp +
+                 "?text=" + encodeURIComponent(texte);
+
+    window.open(lien, "_blank");
+
+});
+</script>
+</body>
+</html>
